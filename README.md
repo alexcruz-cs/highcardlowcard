@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Some words in here for the edit of stuff and things
 
+Some More edits in the readme file
+
 First, run the development server:
 
 ```bash
