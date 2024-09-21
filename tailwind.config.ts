@@ -22,7 +22,7 @@ const config: Config = {
         'pacificred': '#C52A5F',
         'darkred' : '#910734',
         'pacificgreen' : '#7BC52A',
-        'darkgreen' : '#3D9107'
+        'darkgreen' : '#3D9107',
 
       },
 
