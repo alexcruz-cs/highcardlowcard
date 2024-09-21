@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import confetti from 'canvas-confetti'
-import { Button, Card, CardContent } from '@mui/material'
+import { Button, CardContent } from '@mui/material'
 
-const generateCard = () => Math.floor(Math.random() * 13) + 1
+const generateCard = () => Math.floor(Math.random() * 10) + 1
 
 export default function HighCardLowCard() {
   const [gameState, setGameState] = useState('start') // 'start', 'playing', 'result'
@@ -34,12 +34,12 @@ export default function HighCardLowCard() {
       setScore(score + 1)
       confetti({
         particleCount: 100,
-        spread: 70,
+        spread: 100,
         origin: { y: 0.6 }
       })
     }
 
-    setResult(isCorrect ? 'Correct!' : 'Wrong')
+    setResult(isCorrect ? 'Correct!' : 'Sorry, That Is Wrong')
     setGameState('result')
   }
 
@@ -48,14 +48,15 @@ export default function HighCardLowCard() {
   }
 
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-purple-100 p-4">
-      <Card className="w-full max-w-md bg-white shadow-lg rounded-xl overflow-hidden">
-        <CardContent className="p-6">
+  return (    
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-900 text-white transition-colors duration-500">
+      <CardContent className="p-6">
           {gameState === 'start' && (
+            
             <div className="text-center">
-              <h1 className="text-4xl font-bold mb-6 text-purple-600">High Card Low Card</h1>
-              <Button onClick={startGame}  className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
+              <h1 className="text-9xl font-bold mb-2 text-gray-100">HIGH CARD</h1>
+              <h2 className="text-6xl font-bold mb-6 text-gray-100">LOW CARD</h2>
+              <Button onClick={startGame}  className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4">
                 Play
               </Button>
             </div>
@@ -63,20 +64,20 @@ export default function HighCardLowCard() {
 
           {gameState === 'playing' && (
             <div className="text-center">
-              <h2 className="text-xl mb-4">Is the card higher or lower?</h2>
-              <div className="flex justify-center space-x-4 mb-6">
-                <div className="w-24 h-36 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-4xl text-white">{visibleCard}</span>
+              <h2 className="text-4xl font-bold mb-4 p-6">Is The Card Higher Or Lower?</h2>
+              <div className="flex justify-center space-x-4 mb-6 p-6">
+                <div className="w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
+                  <span className="text-9xl text-white">{visibleCard}</span>
                 </div>
-                <div className="w-24 h-36 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-4xl text-white">?</span>
+                <div className="w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-wiggle">
+                  <span className="text-9xl text-white">?</span>
                 </div>
               </div>
               <div className="flex justify-center space-x-4">
-                <Button onClick={() => handleGuess('higher')} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <Button onClick={() => handleGuess('higher')} className="bg-pacificred hover:bg-darkred text-white font-bold py-2 px-4 rounded">
                   Higher
                 </Button>
-                <Button onClick={() => handleGuess('lower')} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                <Button onClick={() => handleGuess('lower')} className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4 rounded">
                   Lower
                 </Button>
               </div>
@@ -85,23 +86,24 @@ export default function HighCardLowCard() {
 
           {gameState === 'result' && (
             <div className="text-center">
-              <h2 className="text-2xl font-bold mb-4">{result}</h2>
-              <div className="flex justify-center space-x-4 mb-6">
-                <div className="w-24 h-36 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-4xl text-white">{visibleCard}</span>
+              <h2 className="text-4xl font-bold mb-4">{result}</h2>
+              <div className="flex justify-center space-x-4 mb-6 p-6">
+                <div className="w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
+                  <span className="text-9xl text-white">{visibleCard}</span>
                 </div>
-                <div className="w-24 h-36 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-4xl text-white">{hiddenCard}</span>
+                <div className="w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
+                  <span className="text-9xl text-white">{hiddenCard}</span>
                 </div>
               </div>
-              <p className="mb-4">Score: {score}</p>
-              <Button onClick={playAgain} className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-                Play Again
+              <Button onClick={playAgain} className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4 rounded">
+                Play Again?
               </Button>
+              <div>
+              <p className="p-6">Score: {score}</p>
+              </div>
             </div>
           )}
         </CardContent>
-      </Card>
     </div>
   )
 }
