@@ -56,7 +56,14 @@ export default function HighCardLowCard() {
             <div className="text-center">
               <h1 className="text-9xl font-bold mb-2 text-gray-100">HIGH CARD</h1>
               <h2 className="text-6xl font-bold mb-6 text-gray-100">LOW CARD</h2>
-              <Button onClick={startGame}  className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4">
+              <Button onClick={startGame} sx={{
+                backgroundColor: '#2A9FC5',
+                '&:hover': { backgroundColor: '#076B91',},
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '0.5rem 1rem',
+                borderRadius: '0.25rem',
+              }}>
                 Play
               </Button>
             </div>
@@ -74,10 +81,24 @@ export default function HighCardLowCard() {
                 </div>
               </div>
               <div className="flex justify-center space-x-4">
-                <Button onClick={() => handleGuess('higher')} className="bg-pacificred hover:bg-darkred text-white font-bold py-2 px-4 rounded">
+                <Button onClick={() => handleGuess('higher')} sx={{
+                  backgroundColor: '#C52A5F',
+                  '&:hover': { backgroundColor: '#910734',},
+                  color: 'white',
+                  fontWeight: 'bold',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.25rem',
+                }}>
                   Higher
                 </Button>
-                <Button onClick={() => handleGuess('lower')} className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4 rounded">
+                <Button onClick={() => handleGuess('lower')} sx={{
+                  backgroundColor: '#2A9FC5',
+                  '&:hover': { backgroundColor: '#076B91',},
+                  color: 'white',
+                  fontWeight: 'bold',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.25rem',
+                }}>
                   Lower
                 </Button>
               </div>
@@ -95,7 +116,14 @@ export default function HighCardLowCard() {
                   <span className="text-9xl text-white">{hiddenCard}</span>
                 </div>
               </div>
-              <Button onClick={playAgain} className="bg-pacificblue hover:bg-darkblue text-white font-bold py-2 px-4 rounded">
+              <Button onClick={playAgain} sx={{
+                backgroundColor: '#2A9FC5',
+                '&:hover': { backgroundColor: '#076B91',},
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '0.5rem 1rem',
+                borderRadius: '0.25rem',
+              }}>
                 Play Again?
               </Button>
               <div>
