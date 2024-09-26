@@ -17,21 +17,30 @@ const config: Config = {
 
       keyframes: {
         wiggle: {
-            '0%, 100%': {
-                transform: 'rotate(-1deg)'
-            },
-            '50%': {
-                transform: 'rotate(1deg)'
-            },
+          '0%, 100%': {
+              transform: 'rotate(-1deg)'
+          },
+          '50%': {
+              transform: 'rotate(1deg)'
+          },
+
+        },
+
+        flipHorizontal: {
+          '50%' : {transform: 'rotateY(-90deg)'}
+
         }
       },
       animation: {
-          wiggle: 'wiggle 1s ease-in-out infinite',
-          
-      }
+        wiggle: 'wiggle 1s ease-in-out infinite',
+        flipH: 'flipHorizontal 1s',
+      },
+      
     },
   },
   plugins: [],
+
+  darkMode: "class",
 
 };
 

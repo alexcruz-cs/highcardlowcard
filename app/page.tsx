@@ -9,8 +9,8 @@ import HighCardLowCard from "./highcard";
 export default function Home() 
 { 
   return ( 
-  <main> 
-    <HighCardLowCard/>
-  </main> 
+    <body>
+      <HighCardLowCard/>
+    </body>
   );
 }
