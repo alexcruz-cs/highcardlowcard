@@ -6,14 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
-
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+
+      
 
       keyframes: {
         wiggle: {
@@ -24,23 +26,23 @@ const config: Config = {
               transform: 'rotate(1deg)'
           },
 
+          cardflip : {
+            '50%' : 'rotateY(180deg)'
+          },
+
         },
 
-        flipHorizontal: {
-          '50%' : {transform: 'rotateY(-90deg)'}
-
-        }
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
-        flipH: 'flipHorizontal 1s',
+        cardflip: 'cardflip 1s ease-in-out infinite'
       },
       
     },
   },
-  plugins: [],
 
-  darkMode: "class",
+  plugins: [],
+  
 
 };
 
