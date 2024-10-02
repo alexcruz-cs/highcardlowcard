@@ -140,23 +140,22 @@ export default function HighCardLowCard()
     return(
       <div className = "min-h-screen flex flex-col items-center justify-center">
         <div className = "p-6 ">
+          <div className="text-center newClass">
           {gameState === 'start' && (
-            <div>
-              <div className="text-center">
+            <>
                 <h1 className = "text-9xl font-bold text-gray-100 stroke-gray-800">HIGH CARD,</h1>
                 <h2 className = "text-8xl font-bold mb-7 text-gray-100 stroke-gray-800">LOW CARD?</h2>  
                 <button onClick={startGame} className = "bg-[#2A9FC5] transition-all duration-500 hover:bg-[#076B91] font-bold text-white py-3 px-8 text-xl rounded">PLAY</button>
-              </div>
 
               <button onClick={gameRules} className = "absolute left-10 bottom-10 w-16 h-16 rounded-full text-2xl bg-gray-800 font-bold hover:bg-[#2A9FC5]">?</button>
 
               
 
-            </div>
+            </>
             )}
 
           {gameState === 'rules' && (
-            <div className = "text-center">
+            <>
               <div className = "bg-gray-800 bg-opacity-[.7] rounded-3xl">
                 <h2 className = "text-4xl font-bold py-8">How To Play</h2>
                   <div className = "flex justify-center space-x-4 py-3">
@@ -181,13 +180,13 @@ export default function HighCardLowCard()
               </div>
               
               <button onClick={startScreen} className = "absolute left-10 bottom-10 w-16 h-16 rounded-full text-2xl bg-[#C52A5F] font-bold hover:bg-[#910734]">X</button>
-            </div>
+            </>
 
           )}
 
           {gameState === 'playing' && (
             // 
-            <div className = "text-center">
+            <>
               <div className = "bg-gray-800 bg-opacity-[.6] rounded-3xl px-9">
                 <h2 className = "text-4xl font-bold mb-4 p-6">Is The Card Higher Or Lower?</h2>
               </div>
@@ -212,11 +211,11 @@ export default function HighCardLowCard()
               <button onClick ={() => startScreen()} className = "fixed left-10 top-7 text-xl font-bold hover:text-[#2A9FC5]">High Card, Low Card?</button>
 
               <h1 className = "absolute right-10 bottom-10 bg-gray-800 bg-opacity-[.7] rounded-3xl p-6 font-bold">Score: {score}</h1>
-            </div>
+            </>
           )}
 
           {gameState === 'result' && (
-            <div className = "text-center">
+            <>
               <div className = "bg-gray-800 bg-opacity-[.7] rounded-3xl">
                 <h2 className = "text-4xl font-bold mb-4 p-6">{result}</h2>
               </div>
@@ -226,18 +225,9 @@ export default function HighCardLowCard()
                   <span className = "text-9xl text-white">{visibleCard}</span>
                 </div>
                 
-                {/*Hidden Card*/}
-                <div className = "relative transition duration-500 [transform-style:preserve-3d] [transform:rotateY(180deg)]">
-
-                  {/*Front of Card*/}
-                  <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white [backface-visibility:hidden]">
-                    <h1 className = "text-9xl text-white">?</h1>
-                  </div>
-
-                  {/*Back of Card*/}
-                  <div className = "absolute inset-0 w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <h1 className="text-9xl text-white">{hiddenCard}</h1>
-                  </div>
+                <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-cardflip">
+                  <span className = "text-9xl text-white animate-showThenHide">?</span>
+                  <span className = "text-9xl text-white animate-hideThenShow">{hiddenCard}</span>
                 </div>
               </div>
 
@@ -245,9 +235,9 @@ export default function HighCardLowCard()
               <h1 className = "absolute right-10 bottom-10 bg-gray-800 bg-opacity-[.7] rounded-3xl p-6 font-bold">Score: {score}</h1>
 
               <button onClick ={() => startScreen()} className = "fixed left-10 top-7 text-xl font-bold hover:text-[#2A9FC5]">High Card, Low Card?</button>
-            </div>
-            
+            </>
           )}
+          </div>
         </div>
       </div>
 
