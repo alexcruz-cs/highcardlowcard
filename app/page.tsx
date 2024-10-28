@@ -3,6 +3,7 @@ import React from 'react';
 import Image from "next/image";
 import { useState } from "react";
 import HighCardLowCard from "./highcard";
+import NavigationBar from './navbar';
 
 
 
@@ -10,8 +11,8 @@ import HighCardLowCard from "./highcard";
 export default function Home() 
 { 
   return ( 
-    <body>
+    <main>
       <HighCardLowCard/>
-    </body>
+    </main>
   );
 }

@@ -138,13 +138,13 @@ export default function HighCardLowCard()
 
     // Return...
     return(
-      <div className = "min-h-screen flex flex-col items-center justify-center">
-        <div className = "p-6 ">
+      <div className = "min-h-screen flex items-center justify-center">
+        <div className = "">
           <div className="text-center newClass">
           {gameState === 'start' && (
             <>
-                <h1 className = "text-9xl font-bold text-gray-100 stroke-gray-800">HIGH CARD,</h1>
-                <h2 className = "text-8xl font-bold mb-7 text-gray-100 stroke-gray-800">LOW CARD?</h2>  
+                <h1 className = "text-5xl md:text-7xl lg:text-9xl font-bold text-gray-100 stroke-gray-800">HIGH CARD,</h1>
+                <h2 className = "text-4xl md:text-6xl lg:text-8xl font-bold mb-7 text-gray-100 stroke-gray-800">LOW CARD?</h2>  
                 <button onClick={startGame} className = "bg-[#2A9FC5] transition-all duration-500 hover:bg-[#076B91] font-bold text-white py-3 px-8 text-xl rounded">PLAY</button>
 
               <button onClick={gameRules} className = "absolute left-10 bottom-10 w-16 h-16 rounded-full text-2xl bg-gray-800 font-bold hover:bg-[#2A9FC5]">?</button>
@@ -157,29 +157,31 @@ export default function HighCardLowCard()
           {gameState === 'rules' && (
             <>
               <div className = "bg-gray-800 bg-opacity-[.7] rounded-3xl">
-                <h2 className = "text-4xl font-bold py-8">How To Play</h2>
+                <h2 className = "text-2xl lg:text-4xl font-bold py-2 lg:py-8">How To Play</h2>
                   <div className = "flex justify-center space-x-4 py-3">
-                    <div className = "w-32 h-48 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
-                      <span className = "text-9xl text-white">5</span>
+                    <div className = "w-28 h-40 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
+                      <span className = "text-6xl lg:text-9xl text-white">5</span>
                     </div>
-                    <div className = "w-32 h-48 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-wiggle">
-                      <span className = "text-9xl text-white">?</span>
+                    <div className = "w-28 h-40 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-wiggle">
+                      <span className = "text-6xl lg:text-9xl text-white">?</span>
                     </div>
                   </div>
-              <div className = "px-10 py-10">
-                <h1 className = "text-3xl py-2">Higher, Lower, Equal!?</h1>
-                <div className = "">
-                  <p className = "text-xl">At the start of each match, a random card between 1-10 is played.</p>
-                  <p className = "text-xl"> Try to guess whether the [?] card is higher, lower, or equal.</p>
-                  <p className = "text-xl">A correct guess for higher or lower will get you 1 point.</p>
-                  <p className = "text-xl pb-1">A correct guess for equal will get you 3 points.</p>
+              <div className = "px-2 py-2">
+                <h1 className = "text-lg font-bold lg:text-xl">Higher, Lower, Equal!?</h1>
+                <div className = "text-sm [text-align:left]">
+                  <ul className = "" >
+                    <li className = "">At the start of each match, a random card between 1-10 is played.</li>
+                    <li className = ""> Try to guess whether the [?] card is higher, lower, or equal.</li>
+                    <li className = "">A correct guess for higher or lower will get you 1 point.</li>
+                    <li className = "">A correct guess for equal will get you 3 points.</li>
+                  </ul>
+                  <h1 className = "flex justify-center font-bold text-lg lg:text-3xl pt-2">Careful Though!</h1>
+                  <p className = "">An incorrect guess will cost you 1 point.</p>
                 </div>
-                <h1 className = "text-3xl pt-4 py-1">Careful Though!</h1>
-                <p className = "text-xl">An incorrect guess will cost you 1 point.</p>
               </div>
               </div>
               
-              <button onClick={startScreen} className = "absolute left-10 bottom-10 w-16 h-16 rounded-full text-2xl bg-[#C52A5F] font-bold hover:bg-[#910734]">X</button>
+              <button onClick={startScreen} className = "absolute left-5 bottom-5 lg:left-10 lg:bottom-13 w-12 h-12 lg:w-16 lg:h-16 rounded-full text-2xl bg-[#C52A5F] font-bold hover:bg-[#910734]">X</button>
             </>
 
           )}
@@ -187,20 +189,21 @@ export default function HighCardLowCard()
           {gameState === 'playing' && (
             // 
             <>
-              <div className = "bg-gray-800 bg-opacity-[.6] rounded-3xl px-9">
-                <h2 className = "text-4xl font-bold mb-4 p-6">Is The Card Higher Or Lower?</h2>
+              <div className = "bg-gray-800 bg-opacity-[.6] rounded-3xl">
+                <h2 className = "text-2xl lg:text-4xl font-bold lg:mb-4 p-3 lg:p-6">Is The Card Higher, Or Lower?</h2>
               </div>
 
               <div className = "flex justify-center space-x-4 mb-6 p-6">
-                <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
-                  <span className = "text-9xl text-white">{visibleCard}</span>
+                <div className = "w-44 h-52 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-cardflip">
+                <span className = "text-8xl lg:text-9xl text-white animate-showThenHide">?</span>
+                <span className = "text-8xl lg:text-9xl text-white animate-hideThenShow">{visibleCard}</span>
                 </div>
-                <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-wiggle">
-                  <span className = "text-9xl text-white"> ? </span>
+                <div className = "w-44 h-52 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-wiggle">
+                  <span className = "text-8xl lg:text-9xl text-white"> ? </span>
                 </div>
               </div>
             
-              <div className = "flex justify-center space-x-4 ">
+              <div className = "space-y-2 lg:space-x-3 pb-3">
                 <button onClick={() => handleGuess('higher')} className = " w-48 bg-[#C52A5F] hover:bg-[#761939] text-white font-bold py-2 px-4 rounded">HIGHER</button> 
 
                 <button onClick={() => handleGuess('lower')} className = "w-48 bg-[#2A9FC5] hover:bg-[#076B91] text-white font-bold py-2 px-4 rounded">LOWER</button>
@@ -209,25 +212,24 @@ export default function HighCardLowCard()
               </div>
 
               <button onClick ={() => startScreen()} className = "fixed left-10 top-7 text-xl font-bold hover:text-[#2A9FC5]">High Card, Low Card?</button>
-
-              <h1 className = "absolute right-10 bottom-10 bg-gray-800 bg-opacity-[.7] rounded-3xl p-6 font-bold">Score: {score}</h1>
+              <h1 className = "absolute right-3 bottom-3 bg-gray-800 bg-opacity-[.7] rounded-3xl p-5 font-bold">Score: {score}</h1>
             </>
           )}
 
           {gameState === 'result' && (
             <>
-              <div className = "bg-gray-800 bg-opacity-[.7] rounded-3xl">
-                <h2 className = "text-4xl font-bold mb-4 p-6">{result}</h2>
+              <div className = "bg-gray-800 bg-opacity-[.6] rounded-3xl">
+                <h2 className = "text-2xl lg:text-4xl font-bold lg:mb-4 p-3 lg:p-6">{result}</h2>
               </div>
 
               <div className = "flex justify-center space-x-4 mb-6 p-6">
-                <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
-                  <span className = "text-9xl text-white">{visibleCard}</span>
+                <div className = "w-44 h-52 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white">
+                  <span className = "text-8xl text-white">{visibleCard}</span>
                 </div>
                 
-                <div className = "w-56 h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-cardflip">
-                  <span className = "text-9xl text-white animate-showThenHide">?</span>
-                  <span className = "text-9xl text-white animate-hideThenShow">{hiddenCard}</span>
+                <div className = "w-44 h-52 md:w-48 md:h-64 lg:w-56 lg:h-80 bg-gray-800 rounded-3xl flex items-center justify-center border-8 border-white animate-cardflip">
+                  <span className = "text-8xl text-white animate-showThenHide">?</span>
+                  <span className = "text-8xl text-white animate-hideThenShow">{hiddenCard}</span>
                 </div>
               </div>
 

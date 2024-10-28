@@ -31,4 +31,15 @@ body {
 
 .newClass {
   width: 85vw;
+  padding-top: 1%;
+}
+
+.gameTitle {
+  font-size:xx-large;
+}
+
+
+.cardSize {
+  width: 13%;
+  height: 25vh;
 }
