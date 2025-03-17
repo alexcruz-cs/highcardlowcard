@@ -144,7 +144,7 @@ export default function HighCardLowCard()
           {gameState === 'start' && (
             <>
                 <h1 className = "text-5xl md:text-7xl lg:text-9xl font-bold text-gray-100 stroke-gray-800">HIGH CARD,</h1>
-                <h2 className = "text-4xl md:text-6xl lg:text-8xl font-bold mb-7 text-gray-100 stroke-gray-800">LOW CARD?</h2>  
+                <h2 className = "text-4xl md:text-6xl lg:text-8xl font-bold mb-7 text-gray-100 stroke-gray-800">LOW CARDS</h2>  
                 <button onClick={startGame} className = "bg-[#2A9FC5] transition-all duration-500 hover:bg-[#076B91] font-bold text-white py-3 px-8 text-xl rounded">PLAY</button>
 
               <button onClick={gameRules} className = "absolute left-10 bottom-10 w-16 h-16 rounded-full text-2xl bg-gray-800 font-bold hover:bg-[#2A9FC5]">?</button>
