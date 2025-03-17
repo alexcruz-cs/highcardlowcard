@@ -2,9 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Some words in here for the edit of stuff and things
-
-Some More edits in the readme file
+Simple card game where user is given a card with a number from 1 to 10 and has to guess wether the card will be higher or lower.
 
 First, run the development server:
 
